@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Exo+2:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,600&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color:#0f1624;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+.countainer {
+    position: relative;
+    width: 500px;
+    background-color: #141e30;
+    text-align: center;
+    padding: 50px;
+    border-radius: 6px;
+}
+.countainer header {
+    font-size: 30px;
+    padding-bottom: 50px;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: #b7c6e1;
+}
+.input-field {
+    width: 100%;
+    height: 60px;
+    position: relative;
+}
+.input-field .email {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    color: #edf1f7;
+    background-color: #1e2d48;
+    padding: 20px 0 0 20px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+}
+.input-field .inner-text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    line-height: 60px;
+    padding-left: 20px;
+    color: #a5b7d9;
+    text-transform: capitalize;
+    pointer-events: none;
+    font-size: 24px;
+    transition: all .5s ease;
+}
+input.email:focus ~ .inner-text,
+input.email:valid ~ .inner-text {
+    transform: translateY(-13px);
+    font-size: 15px;
+}
+.button::after,
+.button::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 6px;
+    width: 120px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 25px;
+    text-transform: capitalize;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .5s linear;
+    pointer-events: none;
+}
+.button::before {
+    content: "send";
+    background-color: #2d426c;
+    color: #dbe2f0;
+    font-weight: bold;
+}
+.button::after {
+    content: "email sent successfuly :)";
+    color: #d5e9f6;
+    background-color: #2573a7;
+    overflow: hidden;
+}
+input.email:focus ~ .button::before,
+input.email:valid ~ .button::before {
+    opacity: 1;
+    pointer-events: auto;
+}
+input.email:invalid ~ .button::before {
+    pointer-events: none;
+}
+input.email:valid ~ .button::before {
+   color: #d5e9f6;
+   background-color: #2573a7;
+}
+#check {
+    display: none;
+}
+#check:checked ~ .button::before {
+    display: none;
+}
+#check:checked ~ .button::after{
+    opacity: 1;
+    width: 100%;
+    pointer-events: auto;
+}
